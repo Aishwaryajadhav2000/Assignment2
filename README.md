@@ -1,4 +1,27 @@
+----------------------------------- Assignment 2 ----------------------------------------
+Build a RESTful API with MongoDB using Node.js and Express
 
+Expand on the previous assignment by integrating MongoDB as a database, testing concepts such as database interaction, CRUD operations, and advanced middleware handling
+
+--------------- File Setup -------------------------------------------------
+index.js :  
+1. Main file (start application)
+
+Users.model.js :  
+1. User schema for storing user data
+2. Enforce validation rules on each field.
+3. Define how user data should look.
+
+Users.route.js :  REST API Routes
+1. Uses app.get, app.post, app.put, and app.delete methods to handle HTTP requests.
+2. Applied middleware
+
+User.controller.js : 
+1. function (impementation) of all routes
+2. Perform CRUD operations on MongoDB.
+
+database.js :
+Mongooseto connect your Node.js application to a MongoDB database.
 
 
 ------------------------------------------------------- commands To run project-------------------------------------------------
@@ -7,28 +30,42 @@
 3. code file => server.js 
 
 ----------------------------------------------------------- Git -----------------------------------------------
-
-
+https://github.com/Aishwaryajadhav2000/Assignment2
 
 
 ----------------------------------------Installation----------------------------------------------
 1. mongoose
 2. Nodemon - Installed to automatically restarts Node.js server whenever make changes in code.
 3. Express - To build APIs and handle routing
-4. bcrypt
+4. bcrypt  - library to hash passwords securely.
 
 
 -------------------npm start--------------
 1. npm start : start server => file index.js
 
 
+---------------------Use Mongoose to connect your Node.js application to a MongoDB database---------------------
+URL => mongodb://localhost:27017/assignment2
+(remove database name assignment2 while testing)
+
 --------------------------------URL------------
     http://localhost:8000/
 
 
----------------------Use Mongoose to connect your Node.js application to a MongoDB database---------------------
-URL => mongodb://localhost:27017/assignment2
-(remove database name assignment2 while testing)
+------------------------ Create a schema for storing user data. with proper validations ----------------
+   Users.model.js
+
+------------------ User Schema ---------------
+Create a schema for storing user data. Schema should have proper validations.
+1. fullName : Once name added cannot update name , required , 
+2. Age : required , age between 18 to 60
+3. isAdult : manually set true
+4. profession : required
+5. experience : required , between 0 to 50
+6. location : default value set as "Not specified"
+7. skills : required
+8. email : Once email added cannot update email , required , lowercase(more validation added in middleware)
+9. isWorking : required
 
 
 
@@ -94,18 +131,3 @@ Implement for error handling ( if incorrect json file )
 410 : Requested page not available (before 6am and after 8pm)
 412 Precondition Failed (All validation errors)
 502 : Bad Gateway (Invalid URL)
-
-
-
-
-index.js :  UseMongooseto connect your Node.js application to a MongoDB database.
-
-Users.model.js :  Create a schema for storing user data
-
-Users.route.js :  REST API Routes
-
-User.controller.js : function (impementation) of all routes
-
-
-
-

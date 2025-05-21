@@ -3,11 +3,13 @@ import { restRoutes } from "./routes/Users.route.js";
 import mongoose from "mongoose";
 import connectDatabase from "./database/database.js";
 
+//Initialize an Express application instance to handle routing and middleware
 const app = express();
 
 // Use Mongoose to connect your Node.js application to a MongoDB database
 connectDatabase();
 
+//Middleware to parse incoming JSON requests
 app.use(express.json());
 
 //MiddleWare 1
@@ -75,8 +77,8 @@ app.listen(PORT, () => {
 });
 
 
-// MiddleWare3
-// For invalid routing
+// MiddleWare : Invalid Route Handler
+// Returns a 502 error with helpful message
 app.use((req, res) => {
     res.status(502).json({
         error: "Invalid routing",
@@ -84,7 +86,9 @@ app.use((req, res) => {
     })
 })
 
-//  middleware 4 => Error-handling
+// middleware
+//JSON Syntax Error Handler
+//Returns a 417 error with an explanation
 app.use((err, req, res, next) => {
     if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
         return res.status(417).json({
